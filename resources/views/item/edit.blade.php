@@ -4,7 +4,7 @@
 <div class="container">
     <h2>Edit Item</h2>
 
-    <form action="{{ route('item.update', $item->id_item) }}" method="POST">
+    <form action="{{ route('item.update', $item->id_item) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -19,6 +19,15 @@
         <div class="mb-3">
             <label>Harga Jual</label>
             <input type="number" name="harga_jual" class="form-control" value="{{ $item->harga_jual }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Gambar</label>
+            <input type="file" name="gambar" class="form-control">
+            @if($item->gambar)
+                <div class="mt-2">
+                    <img src="{{ asset('uploads/' . $item->gambar) }}" width="150">
+                </div>
+            @endif
         </div>
 
         <button type="submit" class="btn btn-success">Update</button>

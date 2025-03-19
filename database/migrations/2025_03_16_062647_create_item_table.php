@@ -18,6 +18,7 @@ class CreateItemTable extends Migration
             $table->string('nama_item')->nullable();
             $table->float('harga_beli')->nullable();
             $table->float('harga_jual')->nullable();
+            $table->text('gambar')->nullable();
         });
     }
 
